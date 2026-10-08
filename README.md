@@ -1,8 +1,11 @@
 # TestForge
 
-**Automated Project Testing & Validation Toolkit**
+**A professional toolkit for automated software testing, validation, and quality analysis.**
 
-[English](#english) · [فارسی](#فارسی)
+[English](#english) · [فارسی](#فارسی) · [Main Prompt](./PROMPT.md)
+
+> **Want to build or test TestForge with Claude?**
+> See the **[Main Prompt](./PROMPT.md)** — the complete prompt for building, testing, verifying, and documenting TestForge.
 
 ---
 
@@ -14,9 +17,15 @@
 
 **TestForge** is a professional toolkit for testing, validating, and analyzing software projects.
 
-It is designed to help developers verify whether a project actually works as expected, identify bugs, analyze failures, and produce clear test reports based on real test results.
+It helps developers determine whether a project actually works as expected, identify and verify bugs, execute available tests, analyze failures, and generate professional test reports based on real results.
 
-TestForge focuses on **evidence-based testing** rather than assumptions.
+TestForge follows an evidence-based approach:
+
+> **Test → Verify → Report**
+
+It never treats untested functionality as working.
+
+---
 
 ## What Is TestForge Used For?
 
@@ -25,43 +34,58 @@ TestForge can be used to:
 * Test software functionality
 * Detect and verify bugs
 * Run automated tests
-* Analyze project structure
-* Validate important user workflows
+* Inspect project structure
+* Validate important workflows
 * Test edge cases and invalid inputs
 * Review error handling
 * Identify potential security issues
 * Analyze performance where possible
 * Review code quality
 * Generate professional test reports
-* Distinguish confirmed problems from untested or unconfirmed issues
-
-### Core Principle
-
-> **Test it. Verify it. Report it.**
-
-TestForge never treats untested functionality as working.
 
 ---
 
-## Key Features
+## Main Features
 
-* 🔍 Project inspection
-* 🧪 Automated testing
-* ✅ Test result validation
-* 🐛 Bug detection and verification
-* 🔐 Security checks
-* ⚡ Performance analysis
-* 📊 Test statistics
-* 📝 Professional test reports
-* 🌐 English and Persian documentation
-* 🛑 Clear `PASS`, `FAIL`, `BLOCKED`, and `NOT TESTED` states
-* 🚫 No fabricated test results
+* Project inspection
+* Automated testing
+* Test result validation
+* Bug detection and verification
+* Security checks
+* Performance analysis
+* Test statistics
+* Professional reports
+* English and Persian documentation
+* Clear test statuses
+* Evidence-based results
+* No fabricated test results
+
+---
+
+## Main Prompt
+
+The repository includes the complete development prompt used to instruct Claude to build, test, verify, and document TestForge.
+
+### [Open PROMPT.md →](./PROMPT.md)
+
+The prompt instructs Claude to:
+
+1. Inspect the project.
+2. Build the real application.
+3. Run actual tests.
+4. Verify bugs.
+5. Test edge cases.
+6. Check security.
+7. Generate reports.
+8. Test TestForge itself.
+9. Fix confirmed implementation problems.
+10. Produce a final verification report.
+
+> **Important:** The prompt is designed to prevent fabricated test results. Claude must clearly distinguish between `PASS`, `FAIL`, `BLOCKED`, and `NOT_TESTED`.
 
 ---
 
 ## How It Works
-
-TestForge follows a structured testing process:
 
 ```text
 Project
@@ -81,11 +105,11 @@ Final Report
 
 ### 1. Inspect
 
-TestForge first analyzes the project structure, dependencies, configuration, and important files.
+TestForge analyzes the project structure, dependencies, configuration, and important files.
 
 ### 2. Plan
 
-It determines which parts of the project should be tested based on the project's actual functionality.
+Testing is based on the actual functionality of the project.
 
 ### 3. Execute
 
@@ -97,22 +121,20 @@ Potential problems are reproduced and verified before being classified as confir
 
 ### 5. Report
 
-A final report summarizes the results, failures, limitations, and recommendations.
+TestForge generates a structured report containing the results, failures, limitations, and recommendations.
 
 ---
 
-## Test Results
-
-TestForge uses four primary statuses:
+## Test Statuses
 
 | Status       | Meaning                                                         |
 | ------------ | --------------------------------------------------------------- |
-| `PASS`       | The test was executed and passed                                |
-| `FAIL`       | The test was executed and failed                                |
+| `PASS`       | Test was executed successfully                                  |
+| `FAIL`       | Test was executed and failed                                    |
 | `BLOCKED`    | Testing could not continue because of an environment limitation |
-| `NOT TESTED` | The test was not executed                                       |
+| `NOT_TESTED` | Test was not executed                                           |
 
-This prevents assumptions from being presented as test results.
+TestForge must never use `PASS` for functionality that was not actually tested.
 
 ---
 
@@ -130,35 +152,33 @@ This prevents assumptions from being presented as test results.
 
 ## Example Usage
 
-After installing and configuring TestForge, run:
-
 ```bash
 testforge test ./my-project
 ```
 
-For a specific test configuration:
+Use a configuration file:
 
 ```bash
 testforge test ./my-project --config testforge.json
 ```
 
-To generate a report:
+Generate a report:
 
 ```bash
 testforge report
 ```
 
-To view available commands:
+Show available commands:
 
 ```bash
 testforge --help
 ```
 
-> The exact commands may depend on the installed version and project configuration.
+> Exact commands may depend on the installed version and project configuration.
 
 ---
 
-## Example Test Report
+## Example Report
 
 ```text
 TestForge Report
@@ -189,7 +209,7 @@ issues require attention.
 
 ## Security
 
-TestForge is designed to identify common security concerns such as:
+TestForge can identify common security concerns such as:
 
 * Exposed API keys
 * Hardcoded secrets
@@ -199,23 +219,23 @@ TestForge is designed to identify common security concerns such as:
 * Sensitive information exposure
 * Unsafe command execution
 
-TestForge does **not** perform destructive security attacks.
+TestForge does not perform destructive security attacks.
 
 ---
 
-## Important Limitations
+## Limitations
 
-TestForge does not claim that a project is completely bug-free.
+TestForge cannot guarantee that a project is completely free of bugs.
 
-Testing is limited by:
+Testing can be limited by:
 
-* Available dependencies
 * Operating system
 * Runtime environment
+* Missing dependencies
 * Missing credentials
 * Network availability
-* Unsupported platforms
 * External services
+* Unsupported platforms
 
 When something cannot be tested, TestForge reports the limitation instead of inventing a result.
 
@@ -230,9 +250,9 @@ git clone https://github.com/far6od/testforge.git
 cd testforge
 ```
 
-Install the required dependencies according to the project's setup instructions.
+Install the required dependencies according to the project setup instructions.
 
-Run the test suite:
+Run the tests:
 
 ```bash
 testforge test .
@@ -250,8 +270,15 @@ Before submitting a pull request:
 2. Add or update relevant tests.
 3. Document new functionality.
 4. Make sure existing tests continue to pass.
-5. Clearly describe the changes.
+5. Clearly describe your changes.
 
+---
+
+## License
+
+TestForge is open-source software.
+
+See [`LICENSE`](./LICENSE) for licensing information.
 
 ---
 
@@ -263,9 +290,15 @@ Before submitting a pull request:
 
 **TestForge** یک ابزار حرفه‌ای برای **تست، اعتبارسنجی و تحلیل پروژه‌های نرم‌افزاری** است.
 
-هدف آن این است که بررسی کند یک پروژه واقعاً مطابق انتظار کار می‌کند یا خیر، مشکلات را پیدا و تأیید کند و در نهایت یک گزارش حرفه‌ای و قابل اعتماد از نتایج تست ارائه دهد.
+هدف TestForge این است که بررسی کند یک پروژه واقعاً مطابق انتظار کار می‌کند یا خیر، مشکلات را پیدا و تأیید کند و در نهایت یک گزارش حرفه‌ای بر اساس نتایج واقعی تست ارائه دهد.
 
-تمرکز TestForge بر **تست واقعی و مبتنی بر شواهد** است، نه حدس و فرض.
+اصل اصلی پروژه:
+
+> **تست → تأیید → گزارش**
+
+TestForge قابلیت‌هایی را که تست نشده‌اند، به‌عنوان قابلیت سالم معرفی نمی‌کند.
+
+---
 
 ## TestForge برای چه کاری است؟
 
@@ -275,55 +308,69 @@ Before submitting a pull request:
 * باگ‌ها را پیدا و تأیید کرد
 * تست‌های خودکار اجرا کرد
 * ساختار پروژه را بررسی کرد
-* جریان‌های اصلی استفاده از برنامه را آزمایش کرد
+* جریان‌های اصلی برنامه را آزمایش کرد
 * ورودی‌های نامعتبر و حالت‌های خاص را تست کرد
 * مدیریت خطاها را بررسی کرد
 * مشکلات امنیتی احتمالی را شناسایی کرد
 * عملکرد برنامه را در صورت امکان بررسی کرد
 * کیفیت کد را تحلیل کرد
 * گزارش حرفه‌ای تست ایجاد کرد
-* مشکلات تأییدشده را از موارد تست‌نشده جدا کرد
-
-### اصل اصلی
-
-> **تست کن، تأیید کن، گزارش بده.**
-
-TestForge هیچ قابلیت تست‌نشده‌ای را به‌عنوان قابلیت سالم معرفی نمی‌کند.
 
 ---
 
 ## قابلیت‌های اصلی
 
-* 🔍 بررسی ساختار پروژه
-* 🧪 اجرای تست‌های خودکار
-* ✅ اعتبارسنجی نتایج
-* 🐛 شناسایی و تأیید باگ
-* 🔐 بررسی‌های امنیتی
-* ⚡ تحلیل عملکرد
-* 📊 آمار تست‌ها
-* 📝 گزارش حرفه‌ای
-* 🌐 مستندات فارسی و انگلیسی
-* 🛑 وضعیت‌های `PASS`، `FAIL`، `BLOCKED` و `NOT TESTED`
-* 🚫 جلوگیری از تولید نتایج ساختگی
+* بررسی ساختار پروژه
+* اجرای تست‌های خودکار
+* اعتبارسنجی نتایج
+* شناسایی و تأیید باگ
+* بررسی امنیتی
+* تحلیل عملکرد
+* آمار تست‌ها
+* گزارش حرفه‌ای
+* پشتیبانی از مستندات فارسی و انگلیسی
+* وضعیت‌های مشخص برای تست‌ها
+* جلوگیری از نتایج ساختگی
+
+---
+
+## پرامپت اصلی
+
+فایل **`PROMPT.md`** شامل پرامپت کامل توسعه TestForge برای Claude است.
+
+### [مشاهده PROMPT.md ←](./PROMPT.md)
+
+این پرامپت به Claude دستور می‌دهد که:
+
+1. پروژه را بررسی کند.
+2. برنامه واقعی را بسازد.
+3. تست‌های واقعی را اجرا کند.
+4. باگ‌ها را تأیید کند.
+5. حالت‌های خاص را آزمایش کند.
+6. امنیت را بررسی کند.
+7. گزارش ایجاد کند.
+8. خود TestForge را تست کند.
+9. مشکلات تأییدشده را اصلاح کند.
+10. گزارش نهایی و وضعیت تأیید را ارائه دهد.
+
+> **نکته مهم:** پرامپت طوری طراحی شده است که از ساخت نتایج آزمایشی و غیرواقعی جلوگیری کند. نتیجه هر تست باید به‌صورت واقعی `PASS`، `FAIL`، `BLOCKED` یا `NOT_TESTED` مشخص شود.
 
 ---
 
 ## TestForge چگونه کار می‌کند؟
-
-روند کلی به شکل زیر است:
 
 ```text
 پروژه
   ↓
 بررسی اولیه
   ↓
-طراحی برنامه تست
+برنامه‌ریزی تست
   ↓
 اجرای تست
   ↓
 تأیید مشکلات
   ↓
-تحلیل نتایج
+تحلیل
   ↓
 گزارش نهایی
 ```
@@ -332,119 +379,72 @@ TestForge هیچ قابلیت تست‌نشده‌ای را به‌عنوان ق
 
 ساختار پروژه، وابستگی‌ها، تنظیمات و فایل‌های مهم بررسی می‌شوند.
 
-### ۲. برنامه‌ریزی تست
+### ۲. برنامه‌ریزی
 
 بر اساس قابلیت‌های واقعی پروژه مشخص می‌شود چه قسمت‌هایی باید تست شوند.
 
-### ۳. اجرای تست
+### ۳. اجرا
 
-در صورت امکان، تست‌ها روی خود پروژه واقعی اجرا می‌شوند.
+در صورت امکان، تست‌ها روی پروژه واقعی اجرا می‌شوند.
 
 ### ۴. تأیید
 
-مشکلات احتمالی تا حد امکان دوباره اجرا و بررسی می‌شوند تا مشخص شود واقعاً باگ هستند یا خیر.
+مشکلات احتمالی دوباره بررسی می‌شوند تا مشخص شود واقعاً مشکل هستند یا خیر.
 
-### ۵. گزارش نهایی
+### ۵. گزارش
 
-در پایان، نتیجه تست‌ها، خطاها، محدودیت‌ها و پیشنهادهای اصلاحی ارائه می‌شود.
+نتایج تست، خطاها، محدودیت‌ها و پیشنهادهای اصلاحی در یک گزارش ساختاریافته ارائه می‌شوند.
 
 ---
 
-## وضعیت نتایج
+## وضعیت تست‌ها
 
 | وضعیت        | معنی                                           |
 | ------------ | ---------------------------------------------- |
 | `PASS`       | تست اجرا شده و موفق بوده است                   |
-| `FAIL`       | تست اجرا شده و با شکست مواجه شده است           |
+| `FAIL`       | تست اجرا شده و شکست خورده است                  |
 | `BLOCKED`    | به دلیل محدودیت محیط امکان تست وجود نداشته است |
-| `NOT TESTED` | تست اجرا نشده است                              |
+| `NOT_TESTED` | تست اجرا نشده است                              |
 
 ---
 
-## سطح اهمیت باگ‌ها
+## سطح اهمیت باگ
 
 | سطح        | معنی                                        |
 | ---------- | ------------------------------------------- |
 | `CRITICAL` | مشکل بسیار شدید یا مشکل مهم امنیتی/اطلاعاتی |
 | `HIGH`     | قابلیت مهم پروژه خراب است                   |
-| `MEDIUM`   | مشکل قابل توجه با امکان وجود راه‌حل جایگزین |
-| `LOW`      | مشکل جزئی یا مربوط به حالت خاص              |
-| `INFO`     | پیشنهاد یا نکته بهبود                       |
+| `MEDIUM`   | مشکل قابل توجه با امکان راه‌حل جایگزین      |
+| `LOW`      | مشکل جزئی یا حالت خاص                       |
+| `INFO`     | نکته یا پیشنهاد بهبود                       |
 
 ---
 
 ## نحوه استفاده
 
-بعد از نصب و تنظیم TestForge می‌توانید پروژه را تست کنید:
+تست یک پروژه:
 
 ```bash
 testforge test ./my-project
 ```
 
-برای استفاده از تنظیمات مشخص:
+استفاده از فایل تنظیمات:
 
 ```bash
 testforge test ./my-project --config testforge.json
 ```
 
-برای ساخت گزارش:
+ساخت گزارش:
 
 ```bash
 testforge report
 ```
 
-برای مشاهده راهنمای دستورات:
+مشاهده راهنمای دستورات:
 
 ```bash
 testforge --help
 ```
-
-> دستورات دقیق ممکن است با توجه به نسخه و تنظیمات پروژه متفاوت باشند.
-
----
-
-## نمونه گزارش
-
-```text
-TestForge Report
-────────────────────────────
-
-Project: ExampleProject
-
-Overall Status: PASS WITH ISSUES
-
-Tests:
-  Total:       42
-  Passed:      37
-  Failed:       3
-  Blocked:      1
-  Not Tested:   1
-
-Critical: 0
-High:     1
-Medium:   2
-Low:      0
-
-Final Verdict:
-Core functionality is operational, but several
-issues require attention.
-```
-
----
-
-## امنیت
-
-TestForge می‌تواند مواردی مانند موارد زیر را بررسی کند:
-
-* API Keyهای قابل مشاهده
-* Secretهای قرارگرفته در کد
-* مدیریت ناامن ورودی
-* مشکلات احراز هویت
-* مشکلات سطح دسترسی
-* افشای اطلاعات حساس
-* اجرای ناامن دستورات
-
-TestForge برای تست امنیتی، عملیات مخرب یا تخریبی انجام نمی‌دهد.
 
 ---
 
@@ -454,15 +454,15 @@ TestForge نمی‌تواند تضمین کند که یک پروژه کاملا�
 
 نتایج تست ممکن است به موارد زیر وابسته باشند:
 
-* وابستگی‌های موجود
 * سیستم‌عامل
 * محیط اجرا
-* اطلاعات ورود و API Keyها
+* وابستگی‌ها
+* API Keyها و اطلاعات دسترسی
 * اتصال اینترنت
 * سرویس‌های خارجی
 * پلتفرم‌های پشتیبانی‌شده
 
-اگر تستی امکان اجرا نداشته باشد، TestForge آن را به‌عنوان `BLOCKED` یا `NOT TESTED` گزارش می‌کند و نتیجه ساختگی تولید نمی‌کند.
+اگر تستی قابل اجرا نباشد، TestForge آن را به‌عنوان `BLOCKED` یا `NOT_TESTED` مشخص می‌کند.
 
 ---
 
@@ -475,9 +475,9 @@ git clone https://github.com/far6od/testforge.git
 cd testforge
 ```
 
-سپس وابستگی‌های مورد نیاز پروژه را نصب کنید.
+سپس وابستگی‌های مورد نیاز را نصب کنید.
 
-برای اجرای تست:
+اجرای تست:
 
 ```bash
 testforge test .
@@ -491,17 +491,50 @@ testforge test .
 
 قبل از ارسال Pull Request:
 
-1. تغییرات خود را تست کنید.
-2. تست‌های مربوطه را اضافه یا به‌روزرسانی کنید.
+1. تغییرات را تست کنید.
+2. تست‌های لازم را اضافه یا به‌روزرسانی کنید.
 3. قابلیت جدید را مستند کنید.
 4. مطمئن شوید تست‌های قبلی همچنان موفق هستند.
 5. تغییرات را به‌صورت واضح توضیح دهید.
 
+---
+
+## مجوز
+
+TestForge یک پروژه متن‌باز است.
+
+برای اطلاعات بیشتر به فایل [`LICENSE`](./LICENSE) مراجعه کنید.
 
 ---
 
-## Support
+## Repository Structure
 
-For questions, bug reports, or feature requests, open an issue in the GitHub repository.
+```text
+testforge/
+├── README.md
+├── PROMPT.md
+├── LICENSE
+└── .gitignore
+```
 
-برای پرسش، گزارش باگ یا پیشنهاد قابلیت جدید، یک Issue در مخزن GitHub ایجاد کنید.
+### Important Files
+
+| File         | Purpose                        |
+| ------------ | ------------------------------ |
+| `README.md`  | Project documentation          |
+| `PROMPT.md`  | Main Claude development prompt |
+| `LICENSE`    | Project license                |
+| `.gitignore` | Files excluded from Git        |
+
+---
+
+## Quick Links
+
+* **[Main Prompt →](./PROMPT.md)**
+* **[License →](./LICENSE)**
+* **[Issues](../../issues)**
+* **[Repository](../../)**
+
+---
+
+**TestForge — Test it. Verify it. Report it.**
